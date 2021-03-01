@@ -1,36 +1,24 @@
-import React, { Component } from 'react'
+import React, {  useEffect, useState } from 'react'
 
-class Todo extends Component {
-  constructor(props){
-    super()
-    this.state = {
-      taskName: ''
-    }
-    this.handleUpdate = this.handleUpdate.bind(this);
+const Todo = (props) => {
+  // State variables
+  const [taskName, setTask] = useState('')
+  // prop variables
+  const {id, delFn, editFn, number, task} = props
 
-  }
-  componentDidMount() {
-    this.setState({
-      taskName: this.props.task
-    })
-  }
-  handleUpdate(event) {
-    this.setState({taskName: event.target.value});
-  }
-  render() {
-    const {id, delFn, editFn, number} = this.props
-    return (
-      <li 
-      id = {id} 
-      key = {id}
-      >
+  useEffect(()=>{
+    setTask(task)
+  }, [task])
+  
+  return (
+    <li id = {id} key = {id}>
       <h6>{number}. </h6>
-      <input type = 'text' onChange = {this.handleUpdate} value = {this.state.taskName} disabled></input>
+      <input type = 'text' onChange = {event => setTask(event.target.value) } value = {taskName} disabled></input>
       <button onClick = {editFn}>edit</button>
       <button onClick = {delFn}>del</button>
-      </li>
-    )
-  }
+    </li>
+  )
 }
+
 
 export default Todo
