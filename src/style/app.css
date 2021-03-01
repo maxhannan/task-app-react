@@ -1,0 +1,37 @@
+.App {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+
+}
+form{
+  display: flex;
+  align-items: center;
+}
+ul{
+  list-style: none;
+  
+}
+li{
+  display: flex;
+  height: 70px;
+  align-items: center;
+  margin-bottom: 2%;
+
+  
+}
+input{
+  font-size: 3vw;
+  height: 60px;
+  padding-left: 5%;
+  border: none;
+}
+h6{
+  font-size: 2vw;
+}
+button{
+  width: 70px;
+  height: 70px;
+}
